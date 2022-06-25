@@ -1,0 +1,7 @@
+{
+    "DB_CONNECTION_URL": "mongodb://localhost:27017/test-Educative-One",
+    "JWT_SECRET": "cjRk4oMu9vmGg9VDSHiPKaJPxC4u3NbpeWvl4pRLsNlMZiu1j2esct2GwOe0xyf6",
+    "REFRESH_SECRET":"ulMgxVLpcv9aVnExy0iL0VM1ryfI3QxQkOkRpUa6MCcQYsrUC0SWfG3pAHlAsfHJ",
+    "S3_IMAGE_PATH": "dev",
+    "PLATFORM": "educative"
+}

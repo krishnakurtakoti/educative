@@ -13,11 +13,11 @@ provider:
   timeout: 30
   stage: dev
   environment:
-    # DB_CONNECTION_URL: ${file(./config/config.${self:custom.currentStage}.json):DB_CONNECTION_URL}
-    # JWT_SECRET: ${file(./config/config.${self:custom.currentStage}.json):JWT_SECRET}
-    # REFRESH_SECRET: ${file(./config/config.${self:custom.currentStage}.json):REFRESH_SECRET}  
-    # S3_IMAGE_PATH: ${file(./config/config.${self:custom.currentStage}.json):S3_IMAGE_PATH}
-    # PLATFORM: ${file(./config/config.${self:custom.currentStage}.json):PLATFORM}
+    DB_CONNECTION_URL: ${file(./config/config.${self:custom.currentStage}.json):DB_CONNECTION_URL}
+    JWT_SECRET: ${file(./config/config.${self:custom.currentStage}.json):JWT_SECRET}
+    REFRESH_SECRET: ${file(./config/config.${self:custom.currentStage}.json):REFRESH_SECRET}  
+    S3_IMAGE_PATH: ${file(./config/config.${self:custom.currentStage}.json):S3_IMAGE_PATH}
+    PLATFORM: ${file(./config/config.${self:custom.currentStage}.json):PLATFORM}
 custom:
   prune:
     automatic: true
