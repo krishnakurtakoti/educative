@@ -1,12 +1,51 @@
 service: aws-node-express-api
-frameworkVersion: '3'
+#app and org for use with dashboard.serverless.com
+#app: your-app-name
+#org: your-org-name
+plugins:
+  #- serverless-prune-plugin
+  - serverless-offline
+  # - serverless-offline-scheduler
 
 provider:
   name: aws
   runtime: nodejs14.x
+  timeout: 30
+  stage: dev
+  environment:
+    # DB_CONNECTION_URL: ${file(./config/config.${self:custom.currentStage}.json):DB_CONNECTION_URL}
+    # JWT_SECRET: ${file(./config/config.${self:custom.currentStage}.json):JWT_SECRET}
+    # REFRESH_SECRET: ${file(./config/config.${self:custom.currentStage}.json):REFRESH_SECRET}  
+    # S3_IMAGE_PATH: ${file(./config/config.${self:custom.currentStage}.json):S3_IMAGE_PATH}
+    # PLATFORM: ${file(./config/config.${self:custom.currentStage}.json):PLATFORM}
+custom:
+  prune:
+    automatic: true
+    number: 1
+  serverless-offline:
+    httpPort: 4000
+  defaultStage: dev
+  currentStage: ${opt:stage, self:custom.defaultStage}
+
+  # you can overwrite defaults here
+  stage: ${self:custom.currentStage}
+#region: us-east-1
+
 
 functions:
-  api:
-    handler: handler.handler
+  user:
+    handler: ./handlers/user/index.handler
     events:
-      - httpApi: '*'
+      - http: "ANY /user/{any+}"
+  test:
+    handler: ./handlers/test/index.handler
+    events:
+      - http: "ANY /test/{any+}"
+  # authentication:
+  #   handler: ./handlers/authentication/index.handler
+  #   events:
+  #     - http: "ANY /auth/{any+}"
+  # postFeed:
+  #   handler: ./handlers/postFeed/index.handler
+  #   events:
+  #     - http: "ANY /social/{any+}" 
