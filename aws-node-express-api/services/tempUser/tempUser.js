@@ -1,5 +1,5 @@
 const TempUserModel = require("../../models/tempUser.model");
-var TempEmailModel = require("../../models/tempemail.model");
+const logger = require("../../util/log");
 //find one in temp user
 module.exports.findTempUser = async (conditions) => {
   try {

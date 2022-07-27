@@ -85,5 +85,6 @@ TempUserSchema.pre("save", async function (next) {
 TempUserSchema.index({ phoneNumber: 1, phoneOTP: 1 });
 TempUserSchema.index({ email: 1, emailOTP: 1 });
 
-var tempUser = mongoose.model("tempUser", TempUserSchema);
-module.exports = tempUser;
+module.exports = mongoose.models.tempUser || mongoose.model('tempUser', TempUserSchema);
+// var tempUser = mongoose.model("tempUser", TempUserSchema);
+// module.exports = tempUser;

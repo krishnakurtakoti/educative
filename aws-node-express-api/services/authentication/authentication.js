@@ -4,6 +4,7 @@ const logger = require("../../util/log");
 const coreDB = require("../../core/db");
 const getMessage = require("../../core/translated-response").getMessage;
 
+const AppError = require("../../util/appError");
 const userService = require("../user");
 const tempUserService = require("../tempUser");
 const tokenService = require("../token");
@@ -139,15 +140,30 @@ module.exports.registerWithEmail = async (body, req) => {
   }
 };
 
+module.exports.userLogin = async (body, req, res) => {
+  const user = await userService.findUser({
+    emailisVerified: true,
+    //status: "active",
+    email: body.email,
+  });
+  if (!user) throw new AppError(404, "auth", "A_E005");
+  const success = await Bcrypt.compare(body.password, user.password);
+  if (!success) throw new AppError(400, "auth", "A_E007");
+  logger.info("Password Matches");
+  logger.info("Sending token to the user");
+  return await this.loginResponse(req, res, user);
+};
+
 module.exports.loginResponse = async (req, res, user) => {
   logger.info("inside login response");
+  console.log("req.ip: ", req);
   let token = await tokenService.signToken(user._id);
   let refreshToken = await tokenService.refreshToken(user._id);
   let tokenInsert = {
     user: user._id,
     jwtToken: token,
     refreshToken: refreshToken,
-    createdByIp: req.ip,
+    createdByIp: req.ip ? req.ip : "",
     requestData: req.useragent,
   };
   let saveToken = await tokenService.saveToken(tokenInsert);

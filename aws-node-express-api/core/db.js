@@ -42,9 +42,9 @@ module.exports.openDBConnection = async () => {
     if (!mongoose.connection.readyState == 1) {
       console.log("Opening new connection");
       conn = await mongoose.connect(dbUrl, {
-        useCreateIndex: true,
-        useNewParser: true,
-        useUnifiedTopology: true,
+        // useCreateIndex: true,
+        // useNewParser: true,
+        // useUnifiedTopology: true,
       });
       return conn;
     } else {

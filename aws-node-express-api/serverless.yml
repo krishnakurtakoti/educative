@@ -41,10 +41,10 @@ functions:
     handler: ./handlers/test/index.handler
     events:
       - http: "ANY /test/{any+}"
-  # authentication:
-  #   handler: ./handlers/authentication/index.handler
-  #   events:
-  #     - http: "ANY /auth/{any+}"
+  authentication:
+    handler: ./handlers/authentication/index.handler
+    events:
+      - http: "ANY /auth/{any+}"
   # postFeed:
   #   handler: ./handlers/postFeed/index.handler
   #   events:

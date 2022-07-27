@@ -19,4 +19,5 @@ var TokenSchema = new Schema({
 
 TokenSchema.index({ user: 1, refreshToken: 1, Status: 1 });
 
-module.exports = mongoose.model("token", TokenSchema);
+module.exports = mongoose.models.token || mongoose.model('token', TokenSchema);
+// module.exports = mongoose.model("token", TokenSchema);
