@@ -1,0 +1,30 @@
+{
+  "en": {
+    "G_S003": "Game genre updated successfully",
+    "G_E004": "Game genre name and image is required"
+  },
+  "ms": {
+    "G_S003": "Game genre updated successfully",
+    "G_E004": "Game genre name and image is required"
+  },
+  "ar": {
+    "G_S003": "Game genre updated successfully",
+    "G_E004": "Game genre name and image is required"
+  },
+  "fr": {
+    "G_S003": "Game genre updated successfully",
+    "G_E004": "Game genre name and image is required"
+  },
+  "kn": {
+    "G_S003": "ಆಟದ ಪ್ರಕಾರವನ್ನು ಯಶಸ್ವಿಯಾಗಿ ನವೀಕರಿಸಲಾಗಿದೆ",
+    "G_E004": "ಆಟದ ಪ್ರಕಾರದ ಹೆಸರು ಮತ್ತು ಚಿತ್ರದ ಅಗತ್ಯವಿದೆ"
+  },
+  "te": {
+    "G_S003": "గేమ్ జానర్ విజయవంతంగా నవీకరించబడింది",
+    "G_E004": "గేమ్ జానర్ పేరు మరియు చిత్రం అవసరం"
+  },
+  "ta": {
+    "G_S003": "விளையாட்டு வகை வெற்றிகரமாக புதுப்பிக்கப்பட்டது",
+    "G_E004": "விளையாட்டு வகையின் பெயர் மற்றும் படம் தேவை"
+  }
+}
