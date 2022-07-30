@@ -45,7 +45,7 @@ functions:
     handler: ./handlers/authentication/index.handler
     events:
       - http: "ANY /auth/{any+}"
-  # postFeed:
-  #   handler: ./handlers/postFeed/index.handler
-  #   events:
-  #     - http: "ANY /social/{any+}" 
+  postFeed:
+    handler: ./handlers/postFeed/index.handler
+    events:
+      - http: "ANY /social/{any+}" 

@@ -146,6 +146,7 @@ module.exports.userLogin = async (body, req, res) => {
     //status: "active",
     email: body.email,
   });
+  console.log("user: ", user)
   if (!user) throw new AppError(404, "auth", "A_E005");
   const success = await Bcrypt.compare(body.password, user.password);
   if (!success) throw new AppError(400, "auth", "A_E007");

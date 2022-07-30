@@ -58,7 +58,7 @@ module.exports.verifyToken = async (req, res, next) => {
         projection: {
           _id: 1,
           accountType: 1,
-          accessLevel: 1,
+          //accessLevel: 1,
           credentialsChangedAt: 1,
           //isAuthor: 1,
         },

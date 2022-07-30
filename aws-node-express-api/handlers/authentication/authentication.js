@@ -112,6 +112,14 @@ module.exports.register = async (req, res) => {
   }
 };
 
+// module.exports.loginUser = async (req, res) => {
+//   logger.info("User Login");
+//   const reqData = req.body;
+//   const queryData = req.query;
+//   const response = await authenticationService.userLogin(reqData, queryData);
+//   return responser.send(200, "authentication", "A_S003", req, res, response);
+// };
+
 module.exports.loginUser = async (req, res) => {
   const db = await coreDB.openDBConnection();
   try {
@@ -124,14 +132,14 @@ module.exports.loginUser = async (req, res) => {
       );
       return res.status(200).send(loginResponse);
     }
-    res.status(400).send({
-        message: await getMessage(
-          "authentication",
-          req.headers.locale || "en",
-          "R_E013"
-        ),
-        messageCode: "R_E013",
-      });
+    return res.status(400).send({
+      message: await getMessage(
+        "authentication",
+        req.headers.locale || "en",
+        "R_E013"
+      ),
+      messageCode: "R_E013",
+    });
   } catch (err) {
     console.log(err);
   }

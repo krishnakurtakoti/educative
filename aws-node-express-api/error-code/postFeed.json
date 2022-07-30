@@ -1,0 +1,62 @@
+{
+  "en": {
+    "PF_P001": "Get Posts Successfully",
+    "PF_P002": "Create Post Successfully",
+    "CO_C001": "Forbidden",
+    "CO_C002": "Something Went Wrong",
+    "CO_C003": "Invalid Query Syntax",
+    "PF_P003": "Get Post Successfully",
+    "PF_P004": "Update Post Successfully",
+    "PF_P005": "Deleted Post Successfully",
+    "LF_L000": "Like Already Exists",
+    "LF_L001": "Get like successful",
+    "LF_L002": "Created like record successfully",
+    "LF_L003": "Update like successful",
+    "LF_L004": "Delete like successful"
+  },
+  "ms": {
+    "PF_P001": "Get Posts Successfully",
+    "PF_P002": "Create Post Successfully",
+    "CO_C001": "Forbidden",
+    "CO_C002": "Something Went Wrong",
+    "CO_C003": "Invalid Query Syntax",
+    "PF_P003": "Get Post Successfully",
+    "PF_P004": "Update Post Successfully",
+    "PF_P005": "Deleted Post Successfully",
+    "LF_L000": "Like Already Exists",
+    "LF_L001": "Get like successful",
+    "LF_L002": "Created like record successfully",
+    "LF_L003": "Update like successful",
+    "LF_L004": "Delete like successful"
+  },
+  "ar": {
+    "PF_P001": "Get Posts Successfully",
+    "PF_P002": "Create Post Successfully",
+    "CO_C001": "Forbidden",
+    "CO_C002": "Something Went Wrong",
+    "CO_C003": "Invalid Query Syntax",
+    "PF_P003": "Get Post Successfully",
+    "PF_P004": "Update Post Successfully",
+    "PF_P005": "Deleted Post Successfully",
+    "LF_L000": "Like Already Exists",
+    "LF_L001": "Get like successful",
+    "LF_L002": "Created like record successfully",
+    "LF_L003": "Update like successful",
+    "LF_L004": "Delete like successful"
+  },
+  "fr": {
+    "PF_P001": "Get Posts Successfully",
+    "PF_P002": "Create Post Successfully",
+    "CO_C001": "Forbidden",
+    "CO_C002": "Something Went Wrong",
+    "CO_C003": "Invalid Query Syntax",
+    "PF_P003": "Get Post Successfully",
+    "PF_P004": "Update Post Successfully",
+    "PF_P005": "Deleted Post Successfully",
+    "LF_L000": "Like Already Exists",
+    "LF_L001": "Get like successful",
+    "LF_L002": "Created like record successfully",
+    "LF_L003": "Update like successful",
+    "LF_L004": "Delete like successful"
+  }
+}

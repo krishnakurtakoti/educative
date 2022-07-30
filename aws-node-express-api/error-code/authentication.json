@@ -15,7 +15,8 @@
     "R_S001": "Register successfully",
     "R_S002": "Account verified successfully",
     "US_E002": "Username already exist",
-    "L_E006": "This email address is not registered to an user"
+    "L_E006": "This email address is not registered to an user",
+    "L_S003": "Successfully User login"
   },
   "ms": {
     "L_S001": "Login successfully",
@@ -33,7 +34,8 @@
     "R_S001": "Register successfully",
     "R_S002": "Account verified successfully",
     "US_E002": "Username already exist",
-    "L_E006": "This email address is not registered to an user"
+    "L_E006": "This email address is not registered to an user",
+    "L_S003": "Successfully User login"
   },
   "ar": {
     "L_S001": "Login successfully",
@@ -51,7 +53,8 @@
     "R_S001": "Register successfully",
     "R_S002": "Account verified successfully",
     "US_E002": "Username already exist",
-    "L_E006": "This email address is not registered to an user"
+    "L_E006": "This email address is not registered to an user",
+    "L_S003": "Successfully User login"
   },
   "fr": {
     "L_S001": "Login successfully",
@@ -69,7 +72,8 @@
     "R_S001": "Register successfully",
     "R_S002": "Account verified successfully",
     "US_E002": "Username already exist",
-    "L_E006": "This email address is not registered to an user"
+    "L_E006": "This email address is not registered to an user",
+    "L_S003": "Successfully User login"
   },
   "kn": {
     "L_S001": "ಯಶಸ್ವಿಯಾಗಿ ಲಾಗಿನ್ ಮಾಡಿ",
@@ -87,7 +91,8 @@
     "R_S001": "ಯಶಸ್ವಿಯಾಗಿ ನೋಂದಾಯಿಸಿ",
     "R_S002": "ಖಾತೆಯನ್ನು ಯಶಸ್ವಿಯಾಗಿ ಪರಿಶೀಲಿಸಲಾಗಿದೆ",
     "US_E002": "ಬಳಕೆದಾರಹೆಸರು ಈಗಾಗಲೇ ಅಸ್ತಿತ್ವದಲ್ಲಿದೆ",
-    "L_E006": "ಈ ಇಮೇಲ್ ವಿಳಾಸವನ್ನು ಬಳಕೆದಾರರಿಗೆ ನೋಂದಾಯಿಸಲಾಗಿಲ್ಲ"
+    "L_E006": "ಈ ಇಮೇಲ್ ವಿಳಾಸವನ್ನು ಬಳಕೆದಾರರಿಗೆ ನೋಂದಾಯಿಸಲಾಗಿಲ್ಲ",
+    "L_S003": "Successfully User login"
   },
   "te": {
     "L_S001": "విజయవంతంగా లాగిన్",
@@ -105,7 +110,8 @@
     "R_S001": "విజయవంతంగా నమోదు",
     "R_S002": "ఖాతా విజయవంతంగా ధృవీకరించబడింది",
     "US_E002": "వినియోగదారు పేరు ఇప్పటికే ఉంది",
-    "L_E006": "ఈ ఇమెయిల్ చిరునామా వినియోగదారుకు నమోదు చేయబడలేదు"
+    "L_E006": "ఈ ఇమెయిల్ చిరునామా వినియోగదారుకు నమోదు చేయబడలేదు",
+    "L_S003": "Successfully User login"
   },
   "ta": {
     "L_S001": "வெற்றிகரமாக உள்நுழைக",
@@ -123,6 +129,7 @@
     "R_S001": "பதிவு வெற்றிகரமாக",
     "R_S002": "கணக்கு வெற்றிகரமாக சரிபார்க்கப்பட்டது",
     "US_E002": "பயனர் பெயர் ஏற்கனவே உள்ளது",
-    "L_E006": "இந்த மின்னஞ்சல் முகவரி ஒரு பயனரிடம் பதிவு செய்யப்படவில்லை"
+    "L_E006": "இந்த மின்னஞ்சல் முகவரி ஒரு பயனரிடம் பதிவு செய்யப்படவில்லை",
+    "L_S003": "Successfully User login"
   }
 }
