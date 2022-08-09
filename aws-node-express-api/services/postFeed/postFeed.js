@@ -152,6 +152,13 @@ module.exports.savePost = async (reqBody, loggedInUser) => {
   try {
     let requestBody = reqBody;
     logger.data("request body: ", requestBody);
+    if(requestBody.images){
+      const imageUrls = requestBody.images.map((imageElement) => {
+        return imageElement.imageUrl
+      })
+      logger.data("image Urls: ", imageUrls)
+      requestBody.imagesLink = imageUrls
+    }
     let { videoLink, imagesLink, message, url } = requestBody;
     //message = await filterText(message);
     let payload = {};

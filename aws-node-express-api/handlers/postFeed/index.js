@@ -12,8 +12,8 @@ const catchError = require("../../core/catchError");
 const coreDB = require("../../core/db");
 const auth = require("../../auth/VerifyToken");
 
+const fileUpload = require("../../middlewares/uploadFile")
 const app = express();
-// const campaignRouter = express.Router();
 const router = express.Router();
 
 //Middlewares
@@ -29,15 +29,10 @@ app.use(xss());
 //Open a DB connection
 coreDB.openDBConnection();
 
-// router.get(
-//   "/post",
-//   auth.verifyToken,
-//   catchError(postFeedHandler.postsAfterLogin)
-// );
 router
   .route("/")
   .get(auth.verifyToken, catchError(postFeedHandler.fetchPostsAfterLogin))
-  .post(auth.verifyToken, catchError(postFeedHandler.createPost));
+  .post(auth.verifyToken, fileUpload.uploadBase64Images, catchError(postFeedHandler.createPost));
 
 router
   .route("/:id")
@@ -45,21 +40,12 @@ router
   .patch(auth.verifyToken, catchError(postFeedHandler.updatePostRecord))
   .delete(auth.verifyToken, catchError(postFeedHandler.deletePost));
 
-// router.post(
-//   "/post",
-//   auth.verifyToken,
-//   catchError(postFeedHandler.createPost)
-// );
-
 router.post("/like", auth.verifyToken, catchError(postFeedHandler.insertLike));
-router.route("/like/:id")
-.patch(auth.verifyToken, catchError(postFeedHandler.editLike))
-.delete(auth.verifyToken, catchError(postFeedHandler.removeLike))
-// router.patch("/social/like/:id", likePermission, editLike);
-// router.delete("/social/like/:id", likePermission, removeLike);
 
-// module.exports = router;
-//app.use(globalErrorHandler);
+router
+  .route("/like/:id")
+  .patch(auth.verifyToken, catchError(postFeedHandler.editLike))
+  .delete(auth.verifyToken, catchError(postFeedHandler.removeLike));
 
 module.exports.handler = serverless(app, {
   callbackWaitsForEmptyEventLoop: false,
