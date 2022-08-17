@@ -1,5 +1,8 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const paginate = require("mongoose-paginate-v2");
+const aggregatePaginate = require("mongoose-aggregate-paginate-v2");
+
 const POST_TYPE = Object.freeze({
   MEDIA: "media",
   LINK: "link",
@@ -34,8 +37,12 @@ const PostFeedSchema = new Schema({
 });
 PostFeedSchema.index({ updatedOn: -1 });
 PostFeedSchema.index({ createdOn: -1 });
-const postFeedModel = (mongoose.models.postFeed || mongoose.model("postFeed", PostFeedSchema))
-module.exports = postFeedModel
+
+PostFeedSchema.plugin(paginate);
+PostFeedSchema.plugin(aggregatePaginate);
+const postFeedModel =
+  mongoose.models.postFeed || mongoose.model("postFeed", PostFeedSchema);
+module.exports = postFeedModel;
 //  {POST_TYPE, postFeedModel};
 // const PostFeedModel = mongoose.model("postFeed", PostFeedSchema);
 // module.exports = { POST_TYPE, PostFeedModel };

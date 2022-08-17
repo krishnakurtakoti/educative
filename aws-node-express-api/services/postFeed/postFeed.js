@@ -1,6 +1,6 @@
 //Package Imports
 //import { ObjectId} from 'mongodb'
-const ObjectId = require("mongodb").ObjectId
+const ObjectId = require("mongodb").ObjectId;
 //Other Imports
 const logger = require("../../util/log");
 
@@ -10,7 +10,7 @@ const responser = require("../../core/responser");
 const LikePostModel = require("../../models/likePost.model");
 const PostFeedModel = require("../../models/postFeed.model");
 const likeService = require("../../services/postFeed");
-
+const APIFeatures = require("../../core/apiFeatures");
 
 const POST_TYPE = Object.freeze({
   MEDIA: "media",
@@ -41,14 +41,16 @@ module.exports.getFilteredPosts = async (req, res) => {
   const filter = { isPrivate: false };
   const option = { populate: likesPopulate };
   const projection = {};
+  const queryParams = req.query;
   req.filter = filter;
   req.option = option;
   req.projection = projection;
+
   return await this.getPosts(req);
 };
 
 module.exports.getPosts = async (
-  { filter, projection, option },
+  { filter, projection, option, query },
   count = true
 ) => {
   try {
@@ -57,10 +59,17 @@ module.exports.getPosts = async (
       return { posts };
     }
     const [posts, total] = await Promise.all([
-      PostFeedModel.find(filter, projection, option),
+      new APIFeatures(query)
+        .filter()
+        .populate(likesPopulate)
+        .sort()
+        .limitFields(["-createdAgent -updatedAgent -__v"])
+        .paginate()
+        .exec(PostFeedModel),
+      //PostFeedModel.find(filter, projection, option),
       PostFeedModel.countDocuments(filter),
     ]);
-    return { posts, total };
+    return { ...posts.data, total };
   } catch (error) {
     throw error;
   }
@@ -87,16 +96,16 @@ module.exports.getSinglePostRecord = async (postId) => {
 };
 
 module.exports.getPostRecord = async (postId) => {
-  logger.info("START: Get single post record with projection and option")
+  logger.info("START: Get single post record with projection and option");
   try {
-    const projection = {updatedOn: 0, updatedBy: 0}
+    const projection = { updatedOn: 0, updatedBy: 0 };
     const option = { populate: likesPopulate };
-    return await PostFeedModel.findById(postId, projection, option)
+    return await PostFeedModel.findById(postId, projection, option);
   } catch (error) {
-    logger.error("err: ", error)
-    throw error
+    logger.error("err: ", error);
+    throw error;
   }
-}
+};
 module.exports.createLike = async (req, postId, reqBody, res) => {
   logger.info("START: Insert like");
   try {
@@ -109,7 +118,7 @@ module.exports.createLike = async (req, postId, reqBody, res) => {
       },
       projection: {},
       option: {},
-    }; 
+    };
     logger.data("likeFilter: ", likeFilter);
     const checkIfLikeExists = await likeExists(likeFilter);
     logger.data("check If Like Exists: ", checkIfLikeExists);
